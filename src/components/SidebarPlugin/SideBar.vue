@@ -119,7 +119,7 @@
     props: {
       logo: {
         type: String,
-        default: 'img/brand/total_salud.jpg',
+        default: 'img/brand/Total-Salud.jpg',
         description: 'Sidebar app logo'
       },
       autoClose: {
