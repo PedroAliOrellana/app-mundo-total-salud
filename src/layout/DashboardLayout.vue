@@ -55,7 +55,7 @@
           this.$router.push('/identifcacion/login')
         }else{    
           let menu = JSON.parse(localStorage.getItem('menu'))
-          const resGet = await axios('http://localhost:3000/funcionalidades/rol/'+ menu._id)
+          const resGet = await axios('https://mundototalsalud.com:3000/funcionalidades/rol/'+ menu._id)
           this.items = resGet.data
         }
     },

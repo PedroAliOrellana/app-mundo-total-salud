@@ -226,7 +226,7 @@
     },
     beforeMount: async function (){
       const afiliado = JSON.parse(localStorage.getItem('afiliado')).data
-      const resGet = await axios('http://localhost:3000/bancosSuscriptor/'+ afiliado._id)
+      const resGet = await axios('https://mundototalsalud.com:3000/bancosSuscriptor/'+ afiliado._id)
       this.tableData = resGet.data
     },
     methods:{        
@@ -258,7 +258,7 @@
           let prueba = confirm("¿Desea eliminar este metodo de pago?")
           if(prueba){             
              try {
-                const resPut = await axios.delete('http://localhost:3000/bancosSuscriptor/'+ id,{
+                const resPut = await axios.delete('https://mundototalsalud.com:3000/bancosSuscriptor/'+ id,{
                         headers:{
                             Authorization: 'Bearer '+ localStorage.getItem('token')
                         } 
@@ -290,7 +290,7 @@
                 suscriptor: JSON.parse(localStorage.getItem('afiliado')).data._id
               }              
               try{
-                const resPost = await axios.post('http://localhost:3000/bancosSuscriptor',data,{
+                const resPost = await axios.post('https://mundototalsalud.com:3000/bancosSuscriptor',data,{
                         headers:{
                             Authorization: 'Bearer '+ localStorage.getItem('token')
                         } 
@@ -312,7 +312,7 @@
                 cedula: this.banco.cedula
               }
               try {
-                const resPut = await axios.put('http://localhost:3000/bancosSuscriptor/'+ this.banco._id,data,{
+                const resPut = await axios.put('https://mundototalsalud.com:3000/bancosSuscriptor/'+ this.banco._id,data,{
                         headers:{
                             Authorization: 'Bearer '+ localStorage.getItem('token')
                         } 

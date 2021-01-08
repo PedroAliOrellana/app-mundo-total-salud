@@ -135,7 +135,7 @@
     },
     beforeMount: async function(){
       const resAfi = JSON.parse(localStorage.getItem('afiliado'))
-      const resGet = await axios('http://localhost:3000/suscriptores/' + resAfi.data.cedula_auspiciador)
+      const resGet = await axios('https://mundototalsalud.com:3000/suscriptores/' + resAfi.data.cedula_auspiciador)
       let data = {
           cedula:"Código",
           nombre: "Master",
@@ -146,11 +146,11 @@
       if(resGet.status == 200){
         resGet.data.parentesco = "Padre"
         this.tableData.push(resGet.data)        
-        const resAbu = await axios('http://localhost:3000/suscriptores/' + resAfi.data.cedula_abuelo)
+        const resAbu = await axios('https://mundototalsalud.com:3000/suscriptores/' + resAfi.data.cedula_abuelo)
          if(resAbu.status == 200){
             resAbu.data.parentesco = "Abuelo"
             this.tableData.push(resAbu.data)        
-            const resBisa = await axios('http://localhost:3000/suscriptores/' + resAfi.data.cedula_bisabuelo)
+            const resBisa = await axios('https://mundototalsalud.com:3000/suscriptores/' + resAfi.data.cedula_bisabuelo)
             if(resBisa.status == 200){
               resBisa.data.parentesco = "Bisabuelo"
               this.tableData.push(resBisa.data)

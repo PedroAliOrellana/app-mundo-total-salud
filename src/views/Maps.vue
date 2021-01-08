@@ -206,7 +206,7 @@
         this.rol.descripcion = rol.descripcion
         this.rol._id = rol._id
         console.log(rol._id)
-        const resGet = await axios('http://localhost:3000/funcionalidadesRol/menu/'+ rol._id)
+        const resGet = await axios('https://mundototalsalud.com:3000/funcionalidadesRol/menu/'+ rol._id)
         this.funcionalidades = resGet.data.funcionalidad
       },
       Guardar(){
@@ -219,7 +219,7 @@
       }
     },
     beforeMount: async function(){
-        const resGet = await axios('http://localhost:3000/roles') 
+        const resGet = await axios('https://mundototalsalud.com:3000/roles') 
         this.roles = resGet.data
         console.log(this.roles)
     }

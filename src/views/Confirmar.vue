@@ -122,7 +122,7 @@
                 return 
             }
             try {
-                const resPost = await axios.put('http://localhost:3000/users',{
+                const resPost = await axios.put('https://mundototalsalud.com:3000/users',{
                                                 id: this.confirmacion.codigo,
                                                 password: this.confirmacion.password})                
                 if(resPost.status == 204){
