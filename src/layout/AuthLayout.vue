@@ -5,7 +5,7 @@
                   containerClasses="px-4 container"
                   expand>
             <router-link slot="brand" class="navbar-brand" to="/">
-                <img src="img/brand/total_salud.jpg"/>
+                <img src="img/brand/Total_Salud.jpg"/>
             </router-link>
 
             <template v-slot="{closeMenu}">
