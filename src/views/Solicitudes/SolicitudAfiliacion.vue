@@ -135,7 +135,7 @@
       eliminarSolicitud: async function(solicitud){
         if(confirm("Confirma que desea eliminar la solicitud de "+ solicitud.nombre + " " + solicitud.apellido)){
          try {
-             const resElim = await axios.put('https://mundototalsalud.com:3000/solicitudesAfiliacion/'+ solicitud.cedula,{estatus:3},{
+             const resElim = await axios.put('http://159.203.124.21:3000/solicitudesAfiliacion/'+ solicitud.cedula,{estatus:3},{
                       headers:{
                           Authorization: 'Bearer '+ localStorage.getItem('token')
                       }
@@ -157,7 +157,7 @@
       aceptarSolicitud: async function(solicitud){
         if(confirm("Confirma la aprobación de la solicitud de "+ solicitud.nombre + " " + solicitud.apellido)){
           try {
-            const resAus = await axios.get('https://mundototalsalud.com:3000/suscriptores/'+solicitud.cedula_auspiciador)
+            const resAus = await axios.get('http://159.203.124.21:3000/suscriptores/'+solicitud.cedula_auspiciador)
             let data = {
               cedula:solicitud.cedula,
               nombre:solicitud.nombre,
@@ -169,7 +169,7 @@
               cedula_abuelo:resAus.data.cedula_auspiciador,
               cedula_bisabuelo:resAus.data.cedula_abuelo
             }
-            const resPost = await axios.post('https://mundototalsalud.com:3000/suscriptores',data,{
+            const resPost = await axios.post('http://159.203.124.21:3000/suscriptores',data,{
                           headers:{
                               Authorization: 'Bearer '+ localStorage.getItem('token')
                           }
@@ -180,11 +180,11 @@
                 email: solicitud.correo,
                 id_rol: "5f8df88afd87cd2da035c3cb"
               }
-              const resUser = await axios.post('https://mundototalsalud.com:3000/users',datos)
+              const resUser = await axios.post('http://159.203.124.21:3000/users',datos)
               if(resUser.status ==200){
-                const resPass = await axios.get('https://mundototalsalud.com:3000/users/restaurar/'+ solicitud.correo)
+                const resPass = await axios.get('http://159.203.124.21:3000/users/restaurar/'+ solicitud.correo)
                 if(resPass.status == 200){
-                  const resSolicitud = await axios.put('https://mundototalsalud.com:3000/solicitudesAfiliacion/'+ solicitud.cedula,{estatus:2},{
+                  const resSolicitud = await axios.put('http://159.203.124.21:3000/solicitudesAfiliacion/'+ solicitud.cedula,{estatus:2},{
                           headers:{
                               Authorization: 'Bearer '+ localStorage.getItem('token')
                           }
@@ -219,7 +219,7 @@
       }
     },
     beforeMount: async function(){
-      const resGet = await axios('https://mundototalsalud.com:3000/solicitudesAfiliacion')
+      const resGet = await axios('http://159.203.124.21:3000/solicitudesAfiliacion')
       this.tableData = resGet.data
      
     }

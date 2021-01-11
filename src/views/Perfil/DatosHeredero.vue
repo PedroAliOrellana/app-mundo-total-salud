@@ -178,7 +178,7 @@
                 if(resCon.status == 200 || resCon.status == 201){
                     try {                         
                         const resCon = JSON.parse(localStorage.getItem('heredero'))
-                        const resPut = await axios.put('https://mundototalsalud.com:3000/herederos/'+ resCon.data._id,data, {
+                        const resPut = await axios.put('http://159.203.124.21:3000/herederos/'+ resCon.data._id,data, {
                             headers:{
                                 Authorization: 'Bearer '+ localStorage.getItem('token')
                             } 
@@ -202,7 +202,7 @@
                     }
                 }else{
                     try {                         
-                        const resPost = await axios.post('https://mundototalsalud.com:3000/herederos',data, {
+                        const resPost = await axios.post('http://159.203.124.21:3000/herederos',data, {
                             headers:{
                                 Authorization: 'Bearer '+ localStorage.getItem('token')
                             } 

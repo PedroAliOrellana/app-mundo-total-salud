@@ -142,7 +142,7 @@
     },
     beforeMount: async function(){
       const resAfi = JSON.parse(localStorage.getItem('afiliado'))
-      const resGet = await axios('https://mundototalsalud.com:3000/suscriptores/hijos/' + resAfi.data.cedula)
+      const resGet = await axios('http://159.203.124.21:3000/suscriptores/hijos/' + resAfi.data.cedula)
       this.tableData = resGet.data
      if(resGet.data.length == 0){
         let data = {

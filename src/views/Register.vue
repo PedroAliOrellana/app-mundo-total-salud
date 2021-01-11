@@ -427,13 +427,13 @@
                         return false
                     }
                     try {
-                        const resGet = await axios('https://mundototalsalud.com:3000/suscriptores/' + this.afiliado.cedula)
+                        const resGet = await axios('http://159.203.124.21:3000/suscriptores/' + this.afiliado.cedula)
                         if(resGet.status == 200){
                             this.mostrarMensaje("Usted ya se encuentra registrado!","warning")
                             return false                 
                         }
                         else{
-                            const resGet = await axios('https://mundototalsalud.com:3000/solicitudesAfiliacion/' + this.afiliado.cedula)
+                            const resGet = await axios('http://159.203.124.21:3000/solicitudesAfiliacion/' + this.afiliado.cedula)
                             if(resGet.status == 200){
                                 this.mostrarMensaje("Usted posee una solicitud activa", "warning")
                                 return false
@@ -453,7 +453,7 @@
                 return false
             }
             try{
-                const resGet = await axios('https://mundototalsalud.com:3000/suscriptores/' + this.auspiciador.cedula)
+                const resGet = await axios('http://159.203.124.21:3000/suscriptores/' + this.auspiciador.cedula)
                 if(resGet.status == 200){                    
                     this.activarControles()
                     this.auspiciador.nombre = resGet.data.nombre                
@@ -518,7 +518,7 @@
                 "banco_pago":this.configuracion.banco
             }
             try {
-                const resPost = await axios.post('https://mundototalsalud.com:3000/solicitudesAfiliacion', datos)
+                const resPost = await axios.post('http://159.203.124.21:3000/solicitudesAfiliacion', datos)
                 if(resPost.status == 201){
                 this.mostrarMensaje("Solicitud Enviada","success")
                 setTimeout(() => {this.$router.push({path:'/'})},3000)
