@@ -135,19 +135,19 @@
                 "password":this.model.password
             }
             try {
-                const resPost = await axios.post('http://159.203.124.21:3000/sessions',datos)
+                const resPost = await axios.post('http://161.35.140.26:3000/sessions',datos)
                 if(resPost.status != 200){
                     this.mostrarMensaje("Credenciales invalidas","warning")
                 }else{                        
-                    const resAfiliado = await axios('http://159.203.124.21:3000/suscriptores/correo/'+ resPost.data.user.email)
+                    const resAfiliado = await axios('http://161.35.140.26:3000/suscriptores/correo/'+ resPost.data.user.email)
                     localStorage.setItem('afiliado', JSON.stringify(resAfiliado)) 
-                    const resConyugue = await axios.get('http://159.203.124.21:3000/conyugues/'+ resAfiliado.data.cedula) 
+                    const resConyugue = await axios.get('http://161.35.140.26:3000/conyugues/'+ resAfiliado.data.cedula) 
                     localStorage.setItem('conyugue', JSON.stringify(resConyugue)) 
-                    const resHeredero = await axios.get('http://159.203.124.21:3000/herederos/'+ resAfiliado.data.cedula) 
+                    const resHeredero = await axios.get('http://161.35.140.26:3000/herederos/'+ resAfiliado.data.cedula) 
                     localStorage.setItem('heredero', JSON.stringify(resHeredero))
                     localStorage.setItem('token',resPost.data.jwt)
                     localStorage.setItem('usuario',JSON.stringify(resPost.data.user))
-                    const resGet = await axios('http://159.203.124.21:3000/funcionalidadesRol/menu/'+ resPost.data.user.id_rol)
+                    const resGet = await axios('http://161.35.140.26:3000/funcionalidadesRol/menu/'+ resPost.data.user.id_rol)
                     localStorage.setItem('menu',JSON.stringify(resGet.data))
                     this.$router.push('/')
                 }                
@@ -176,7 +176,7 @@
                 return false
             }
             try {
-                const resGet = await axios('http://159.203.124.21:3000/users/restaurar/'+ this.model.email)
+                const resGet = await axios('http://161.35.140.26:3000/users/restaurar/'+ this.model.email)
                if(resGet.status != 200){
                     this.mostrarMensaje("Correo no registrado","warning")
                 }else{

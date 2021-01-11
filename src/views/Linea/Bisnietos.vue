@@ -142,7 +142,7 @@
     },
     beforeMount: async function(){
       const resAfi = JSON.parse(localStorage.getItem('afiliado'))
-      const resGet = await axios('http://159.203.124.21:3000/suscriptores/bisnietos/' + resAfi.data.cedula)
+      const resGet = await axios('http://161.35.140.26:3000/suscriptores/bisnietos/' + resAfi.data.cedula)
       if(resGet.data.length == 0){
         let data = {
           cedula: "No",

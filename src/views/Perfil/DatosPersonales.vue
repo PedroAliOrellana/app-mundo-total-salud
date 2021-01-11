@@ -142,7 +142,7 @@
                 this.mostrarMensaje("No ha realizado ningun cambio","warning")
             }else{
                 try {
-                    const resPost = await axios.post('http://159.203.124.21:3000/afiliados/'+ this.cedula, this.model, {
+                    const resPost = await axios.post('http://161.35.140.26:3000/afiliados/'+ this.cedula, this.model, {
                         headers:{
                             Authorization: 'Bearer '+ localStorage.getItem('token')
                         } 

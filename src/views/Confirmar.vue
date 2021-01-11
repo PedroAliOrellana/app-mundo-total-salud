@@ -122,7 +122,7 @@
                 return 
             }
             try {
-                const resPost = await axios.put('http://159.203.124.21:3000/users',{
+                const resPost = await axios.put('http://161.35.140.26:3000/users',{
                                                 id: this.confirmacion.codigo,
                                                 password: this.confirmacion.password})                
                 if(resPost.status == 204){
